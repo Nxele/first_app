@@ -1,0 +1,1 @@
+var mongo_client = require('mongodb').MongoClient;
