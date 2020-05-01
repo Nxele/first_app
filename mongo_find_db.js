@@ -7,9 +7,22 @@ client.connect(function(err,res){
     const dbo = client.db('mydb');
     const collection =dbo.collection('customer');
 
-    //findOne display the first row in the collection
+    //findOne display the first row/documents in the collection
     collection.findOne({},function(err,res){
         if(err) throw err;
+        console.log(res)
+        client.close()
+    })
+
+    //find() display all record/documents in the collection
+    collection.find({}).toArray(function(err,res){
+        if(err) throw err;
+        console.log(res)
+        client.close();
+    })
+
+    //find selected field from the /collection
+    collection.find({},{projection:{_id:0,name:1,Age:1,age:1}}).toArray(function(err,res){
         console.log(res)
         client.close()
     })
