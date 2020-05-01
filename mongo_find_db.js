@@ -21,6 +21,12 @@ client.connect(function(err,res){
         client.close();
     })
 
+    //find and limit the number of records returned by using limit(5)
+    collection.find().limit(5).toArray(function(err,res){
+        console.log(res)
+        client.close();
+    })
+
     //find selected field from the /collection
     collection.find({},{projection:{_id:0,name:1,Age:1,age:1}}).toArray(function(err,res){
         console.log(res)
