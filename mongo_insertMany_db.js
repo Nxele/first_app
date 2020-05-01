@@ -6,7 +6,7 @@ db_client.connect(function(err,callback){
     const dbo = db_client.db("mydb");
     const collection = dbo.collection("customer");
     const users = [{name:"Gugu",surname:"Nxele",Age:20},{name:"Sisanda",surname:"Nxele",Age:10}];
-
+    
     collection.insertMany(users,function(err,res){
         if(err) throw err;
         console.log(res)
